@@ -1,93 +1,57 @@
-import React, { useReducer } from 'react';
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'HOME':
-      state.page = 'HOME';
-      return state;
-    case 'ABOUT':
-      state.page = 'ABOUT';
-      return state;
-    case 'QNA':
-      state.page = 'QNA';
-      return state;
-    default:
-      return state;
-  }
-}
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const Navigation = () => {
-  const [state, dispatch] = useReducer(reducer, { page: 'HOME' });
-
-  const goHome = (e) => {
-    console.log('HOME');
-    dispatch({ type: 'HOME' });
-  };
-
-  const goAbout = (e) => {
-    console.log('ABOUT');
-    dispatch({ type: 'ABOUT' });
-  };
-
-  const goQna = (e) => {
-    console.log('QNA');
-    dispatch({ type: 'QNA' });
-  };
-  const link = [{ goHome }, { goAbout }, { goQna }];
-  if (state.page === 'HOME') {
-    return <Home link={state} />;
-  } else if (state.page === 'ABOUT') {
-    return <About />;
-  } else if (state.page === 'QNA') {
-    return <Qna />;
-  } else {
-    return <div></div>;
-  }
+  return (
+    <>
+      <Router>
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/qna" component={Qna} />
+      </Router>
+    </>
+  );
 };
 
-const Home = (link) => {
-  const [state, dispatch] = useReducer(reducer, { page: 'HOME' });
-
-  const goHome = (e) => {
-    console.log('test');
-    dispatch({ type: 'HOME' });
-  };
-
-  const goAbout = (e) => {
-    console.log('ABOUT');
-    dispatch({ type: 'ABOUT' });
-  };
-
-  const goQna = (e) => {
-    console.log('QNA');
-    dispatch({ type: 'QNA' });
-  };
+const Header = () => {
+  return (
+    <header className="header">
+      <strong>Header</strong>
+      <ul>
+        <li>
+          <a href="home">Home</a>
+        </li>
+        <li>
+          <a href="about">About</a>
+        </li>
+        <li>
+          <a href="qna">Qna</a>
+        </li>
+      </ul>
+    </header>
+  );
+};
+const Home = () => {
   return (
     <div>
+      <Header></Header>
       <div>this page is HOME</div>
-      <button onClick={goHome}>HOME</button>
-      <button onClick={goAbout}>ABOUT</button>
-      <button onClick={goQna}>QNA</button>
     </div>
   );
 };
-const About = (link) => {
+const About = () => {
   return (
     <div>
+      <Header></Header>
       <div>this page is ABOUT</div>
-      <button onClick={link[0]}>HOME</button>
-      <button onClick={link[1]}>ABOUT</button>
-      <button onClick={link[2]}>QNA</button>
     </div>
   );
 };
-const Qna = (link) => {
+const Qna = () => {
   return (
     <div>
+      <Header></Header>
       <div>this page is QNA</div>
-      <button onClick={link[0]}>HOME</button>
-      <button onClick={link[1]}>ABOUT</button>
-      <button onClick={link[2]}>QNA</button>
     </div>
   );
 };

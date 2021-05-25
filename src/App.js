@@ -6,7 +6,7 @@ import CounterReducer from './CounterReducer';
 import Navigation from './Navigation';
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const show = () => {
     setVisible(visible ? false : true);
