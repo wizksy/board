@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './Home';
 import Counter from './Counter';
+import Info from './Info';
+import CounterReducer from './CounterReducer';
+import Navigation from './Navigation';
 
-function App() {
-  return <Counter />;
-}
+const App = () => {
+  const [visible, setVisible] = useState(false);
+
+  const show = () => {
+    setVisible(visible ? false : true);
+  };
+  return (
+    <div>
+      <button onClick={show}>{visible ? 'hide' : 'show'}</button>
+      {visible && <Navigation />}
+    </div>
+  );
+};
 export default App;
