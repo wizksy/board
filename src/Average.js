@@ -10,6 +10,7 @@ const getAverage = numbers => {
 const Average = () => {
 	const [list, setList] = useState([]);
 	const [number, setNumber] = useState('');
+	const inputE1 = useRef(null);
 	
 	const onChange = e => {
 		setNumber(e.target.value);	
@@ -28,12 +29,13 @@ const Average = () => {
 		const nextList = list.concat(parseInt(number));
 		setList(nextList);
 		setNumber('');
+		inputE1.current.focus();
 	}, [number, list]);
 	
 	const avg = useMemo( () => getAverage(list), [list]);
 	return (
 		<div>
-			<input value={number} onChange={onChange1}/>
+			<input value={number} onChange={onChange1} ref={inputE1}/>
 			<button onClick={onInsert1}>register</button>
 			<ul>
 				{list.map((value, index) => (
