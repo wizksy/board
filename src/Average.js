@@ -33,3 +33,5 @@ const Average = () => {
 		</div>
 	);
 };
+
+export default Average;
