@@ -30,11 +30,12 @@ const Average = () => {
 		setNumber('');
 	}, [number, list]);
 	
+	
 	const avg = useMemo( () => getAverage(list), [list]);
 	return (
 		<div>
-			<input value={number} onChange={onChange}/>
-			<button onClick={onInsert}>register</button>
+			<input value={number} onChange={onChange1}/>
+			<button onClick={onInsert1}>register</button>
 			<ul>
 				{list.map((value, index) => (
 				<li key={index}>{value}</li>
