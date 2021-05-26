@@ -4,6 +4,7 @@ import Counter from './Counter';
 import Info from './Info';
 import CounterReducer from './CounterReducer';
 import Navigation from './Navigation';
+import Average from './Average';
 
 const App = () => {
   const [visible, setVisible] = useState(true);
@@ -14,7 +15,7 @@ const App = () => {
   return (
     <div>
       <button onClick={show}>{visible ? 'hide' : 'show'}</button>
-      {visible && <Navigation />}
+      {visible && <Average />}
     </div>
   );
 };
