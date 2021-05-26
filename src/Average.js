@@ -12,6 +12,7 @@ const Average = () => {
 	const [number, setNumber] = useState('');
 	const inputE1 = useRef(null);
 	
+	
 	const onChange = e => {
 		setNumber(e.target.value);	
 	};
