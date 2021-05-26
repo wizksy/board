@@ -15,7 +15,7 @@ const Average = () => {
 		setNumber(e.target.value);	
 	};
 	
-	const onChnage1 = useCallback( e => {
+	const onChange1 = useCallback( e => {
 		setNumber(e.target.value);
 	}, []);
 	
