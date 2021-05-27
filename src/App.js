@@ -1,22 +1,7 @@
-import React, { useState } from 'react';
-import Home from './Home';
-import Counter from './Counter';
-import Info from './Info';
-import CounterReducer from './CounterReducer';
-import Navigation from './Navigation';
-import Average from './Average';
+import React from 'react'
 
 const App = () => {
-  const [visible, setVisible] = useState(true);
+	return <div>Todo App을 만들자</div>;
+}
 
-  const show = () => {
-    setVisible(visible ? false : true);
-  };
-  return (
-    <div>
-      <button onClick={show}>{visible ? 'hide' : 'show'}</button>
-      {visible && <Average />}
-    </div>
-  );
-};
 export default App;
