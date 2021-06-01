@@ -47,7 +47,7 @@ const TodoInsert = () => {
       <TodoInput
         placeholder="할 일을 입력하세요"
         value={value}
-        onChnage={onChange}
+        onChange={onChange}
       />
       <Button type="submit">
         <MdAdd />
