@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const TodoTemplate = ({ children }) => {
   const TodoTemplate = styled.div`
-    width: 512px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;

@@ -6,7 +6,7 @@ import {
 } from 'react-icons/md';
 import styled, { css } from 'styled-components';
 
-const TodoListItem = ({ todo }) => {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const TodoListItem = styled.div`
     padding: 1rem;
     display: flex;
@@ -54,18 +54,18 @@ const TodoListItem = ({ todo }) => {
     }
   `;
 
-  const { text, checked } = todo;
+  const { id, text, checked } = todo;
   return (
     <TodoListItem>
-      <CheckBox>
+      <CheckBox onClick={() => onToggle(id)}>
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <div className="text">{text}</div>
       </CheckBox>
-      <Remove>
+      <Remove onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </Remove>
     </TodoListItem>
   );
 };
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
