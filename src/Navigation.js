@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Profile from './Profile';
+import qs from 'qs';
 
 const Navigation = () => {
   return (
@@ -8,6 +10,7 @@ const Navigation = () => {
         <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/qna" component={Qna} />
+        <Route path="/profile/:username" component={Profile} />
       </Router>
     </>
   );
@@ -19,13 +22,19 @@ const Header = () => {
       <strong>Header</strong>
       <ul>
         <li>
-          <a href="home">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="about">About</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="qna">Qna</a>
+          <Link to="/qna">Qna</Link>
+        </li>
+        <li>
+          <Link to="/profile/wizksy">Wizksy Profile</Link>
+        </li>
+        <li>
+          <Link to="/profile/gildong">GilDong Profile</Link>
         </li>
       </ul>
     </header>
@@ -39,7 +48,10 @@ const Home = () => {
     </div>
   );
 };
-const About = () => {
+const About = ({ location }) => {
+  const query = qs.parse(location.search, { ignoreQueryPrefix: true });
+  const showDetail = query.detail === 'true';
+
   return (
     <div>
       <Header></Header>

@@ -6,7 +6,7 @@ import {
 } from 'react-icons/md';
 import styled, { css } from 'styled-components';
 
-const TodoListItem = ({ todo, onRemove, onToggle }) => {
+const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
   const TodoListItem = styled.div`
     padding: 1rem;
     display: flex;
